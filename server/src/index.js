@@ -24,8 +24,8 @@ app.use(morgan('dev'));
 const limiter = rateLimit({ windowMs: 60_000, max: 120 });
 app.use(limiter);
 
-app.get('/api/health', (_req, res) => {
-  res.json({ ok: true, service: 'tribal-education-backend', time: new Date().toISOString() });
+app.get("/api/health", (req, res) => {
+  res.json({ status: "Backend is healthy ✅" });
 });
 
 app.use('/api/auth', authRouter);
