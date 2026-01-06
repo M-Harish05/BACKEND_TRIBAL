@@ -28,7 +28,7 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "Backend is healthy ✅" });
 });
 
-app.use('/api/auth', authRouter);
+
 app.use('/api/user', userRouter);
 app.use('/api/progress', progressRouter);
 app.use('/api/voice', voiceRouter);
