@@ -9,6 +9,7 @@ import rateLimit from 'express-rate-limit';
 import createError from 'http-errors';
 import { connectToDatabase } from './lib/db.js';
 import authRouter from './routes/auth.routes.js';
+app.use("/api/auth", authRoutes);
 import userRouter from './routes/user.routes.js';
 import progressRouter from './routes/progress.routes.js';
 import voiceRouter from './routes/voice.routes.js';
