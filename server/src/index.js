@@ -9,7 +9,6 @@ import rateLimit from 'express-rate-limit';
 import createError from 'http-errors';
 import { connectToDatabase } from './lib/db.js';
 import authRouter from './routes/auth.routes.js';
-app.use("/api/auth", authRoutes);
 import userRouter from './routes/user.routes.js';
 import progressRouter from './routes/progress.routes.js';
 import voiceRouter from './routes/voice.routes.js';
@@ -20,6 +19,7 @@ app.use(helmet());
 app.use(cors({ origin: process.env.CLIENT_ORIGIN || '*', credentials: true }));
 app.use(express.json({ limit: '1mb' }));
 app.use(morgan('dev'));
+app.use("/api/auth", authRoutes);
 
 const limiter = rateLimit({ windowMs: 60_000, max: 120 });
 app.use(limiter);
