@@ -19,7 +19,7 @@ app.use(helmet());
 app.use(cors({ origin: process.env.CLIENT_ORIGIN || '*', credentials: true }));
 app.use(express.json({ limit: '1mb' }));
 app.use(morgan('dev'));
-app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRouter);
 
 const limiter = rateLimit({ windowMs: 60_000, max: 120 });
 app.use(limiter);
